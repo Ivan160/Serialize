@@ -1,3 +1,4 @@
+import serialize from './serialize';
 var sendForm = function (url) {
    var forms = document.querySelectorAll('form');
    for (var i = 0; i < forms.length; i++) {
@@ -29,11 +30,13 @@ var sendForm = function (url) {
             if (request.readyState === XMLHttpRequest.DONE && request.status !== 200) {
                messageStatus.innerText = 'Упс, что-то пошло не так...';
                messageStatus.className = 'messageError';
+               setTimeout(function(){messageStatus.style.display='none'}, 10000);
             }
 
             if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
                messageStatus.innerText = 'Форма успешно отправлена!';
                messageStatus.className = 'messageSuccess';
+               setTimeout(function(){messageStatus.style.display='none'}, 10000);
             }
          };
 
@@ -41,6 +44,5 @@ var sendForm = function (url) {
       });
    }
 };
-
 // sendForm('./server.php');
 // export default sendForm;
