@@ -41,5 +41,6 @@ var sendForm = function (url) {
       });
    }
 };
+
 // sendForm('./server.php');
 // export default sendForm;
